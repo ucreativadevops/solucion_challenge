@@ -28,15 +28,15 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/angular-tour-of-heroes'),
+      dir: require('path').join(__dirname, './coverage/clase6'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
       check: {
         global: {
-          statements: 65,
-          branches: 65,
-          functions: 65,
-          lines: 65,
+          statements: 99,
+          branches: 99,
+          functions: 99,
+          lines: 99,
         },
       },
     },
