@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "windows-vm"
+        label "windows-worker"
     }
 
     stages {
