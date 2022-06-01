@@ -4,6 +4,11 @@
 //Enables Chromium from puppeteer
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
+const browser = await puppeteer.launch({
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
+
+
 module.exports = function (config) {
   config.set({
     basePath: '',
