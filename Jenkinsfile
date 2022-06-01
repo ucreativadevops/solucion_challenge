@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Unit Test Execution') {
             steps {
-                sh "npm run test"
+                sh "ng test"
             }
         }
         stage('Build Execution') {
