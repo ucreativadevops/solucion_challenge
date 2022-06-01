@@ -4,28 +4,28 @@ pipeline {
     stages {
         stage('Angular Verification') {
             steps {
-                bat "ng version"
+                sh "ng version"
             }
         }
         
         stage('Dependencies Installation') {
             steps {
-                bat "npm install"
+                sh "npm install"
             }
         }
         stage('Lint Test Execution') {
             steps {
-                bat "npm run lint"
+                sh "npm run lint"
             }
         }
         stage('Unit Test Execution') {
             steps {
-                bat "npm run test"
+                sh "npm run test"
             }
         }
         stage('Build Execution') {
             steps {
-                bat "npm run build"
+                sh "npm run build"
             }
         }
         
