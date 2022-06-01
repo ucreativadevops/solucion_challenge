@@ -18,11 +18,11 @@ pipeline {
                 sh "npm run lint"
             }
         }
-//         stage('Unit Test Execution') {
-//             steps {
-//                 sh "ng test"
-//             }
-//         }
+        stage('Unit Test Execution') {
+            steps {
+                sh "ng test"
+            }
+        }
         stage('Build Execution') {
             steps {
                 sh "npm run build"
