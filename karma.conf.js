@@ -3,16 +3,7 @@
 
 //Enables Chromium from puppeteer
 process.env.CHROME_BIN = require('puppeteer').executablePath();
-const puppeteer = require('puppeteer');
-
-(async () => {
-  const browser = await puppeteer.launch({args: ['--no-sandbox']});
-  const page = await browser.newPage();
-  await page.goto('http://owlcommand.com');
-  await page.screenshot({path: 'example.png'});
-
-  await browser.close();
-})();
+const browser = await puppeteer.launch({args: ['--no-sandbox']});
 
 module.exports = function (config) {
   config.set({
