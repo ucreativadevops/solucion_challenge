@@ -7,6 +7,7 @@ pipeline {
             steps {
                 checkout scm
                 sh 'node --version'
+                sh 'ls -la'
             }
         }
     }
