@@ -1,38 +1,13 @@
 pipeline {
-    agent any
-  
+    agent {
+        docker { image 'node:16.13.1-alpine' }
+    }
     stages {
-        stage('Angular Verification') {
+        stage('Test') {
             steps {
-                sh "ng version"
+                checkout scm
+                sh 'node --version'
             }
         }
-        
-        stage('Dependencies Installation') {
-            steps {
-                sh "npm install"
-            }
-        }
-        stage('Lint Test Execution') {
-            steps {
-                sh "npm run lint"
-            }
-        }
-        stage('Unit Test Execution') {
-            steps {
-                sh "ng test"
-            }
-        }
-        stage('Build Execution') {
-            steps {
-                sh "npm run build"
-            }
-        }
-        
-//         stage('Deploy Application') {
-//             steps {
-//                 bat "xcopy dist\\clase6 C:\\inetpub\\wwwroot\\romell\\prod /s /y"
-//             }
-//         }
     }
 }
