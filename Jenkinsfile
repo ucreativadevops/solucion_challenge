@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:16.13.1-alpine' }
+        docker { image 'node' }
     }
     stages {
         stage('Test') {
@@ -11,6 +11,7 @@ pipeline {
                 sh 'npm install'
                 sh 'npm run build'
                 sh 'ls dist'
+                sh 'cp dist/clase6/* /usr/share/nginx/html/'
             }
         }
     }
