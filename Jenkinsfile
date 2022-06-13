@@ -28,7 +28,9 @@ pipeline {
 
         stage('Sonar Execution') {
             steps {
-                sh "npm run sonar"
+                withSonarQubeEnv('sq-1'){
+                    sh "npm run sonar"
+                }
             }
         }
 
