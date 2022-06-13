@@ -34,8 +34,11 @@ docker run -d -p 9000:9000 --restart=on-failure --name sonarqube-server sonarqub
 
 # Finalmente vamos a proceder a extraer la IP del host donde corre el contenedor de sonarqube para colocarla en nuestro sonar-project.properties con el comando ip a en linux o ipconfig en windows
 
-ip a -> Linux/Mac 
-ipconfig -> Windows
+# Linux / Mac
+ip a
+
+# Windows
+ipconfig
 ```
 
 ### Servidor Web
