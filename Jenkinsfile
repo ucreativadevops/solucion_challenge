@@ -43,5 +43,11 @@ pipeline {
                 sh "cp dist/clase6/* /var/www/html"
             }
         }
+
+        post {
+            always {
+                cleanWs()
+            }
+        }
     }
 }
