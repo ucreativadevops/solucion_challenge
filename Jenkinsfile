@@ -26,12 +26,12 @@ pipeline {
             }
         }
 
-        stage('Unit Test Execution') {
+        stage('Sonar Execution') {
             steps {
                 sh "npm run sonar"
             }
         }
-        
+
         stage('Build Execution') {
             steps {
                 sh "npm run build"
