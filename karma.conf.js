@@ -3,7 +3,6 @@
 
 //Enables Chromium from puppeteer
 process.env.CHROME_BIN = require('puppeteer').executablePath();
-const browser = await puppeteer.launch({args: ['--no-sandbox']});
 
 module.exports = function (config) {
   config.set({
@@ -46,7 +45,13 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessCI'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     singleRun: true,
     restartOnFileChange: true,
   });
