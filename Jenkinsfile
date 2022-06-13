@@ -32,6 +32,12 @@ pipeline {
             }
         }
 
+        stage('Quality Gate Validation') {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+
         stage('Build Execution') {
             steps {
                 sh "npm run build"
@@ -45,7 +51,7 @@ pipeline {
         }
 
     }
-    
+
     post {
         always {
             cleanWs()
