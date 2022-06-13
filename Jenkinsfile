@@ -20,11 +20,11 @@ pipeline {
             }
         }
 
-        // stage('Unit Test Execution') {
-        //     steps {
-        //         sh "npm run test"
-        //     }
-        // }
+        stage('Unit Test Execution') {
+            steps {
+                sh "npm run test"
+            }
+        }
 
         stage('Sonar Execution') {
             steps {
