@@ -1,61 +1,39 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:16.13.1-alpine'
-            args '-u 0:0 -v code_deploy:/tmp'
-        }
+    agent { 
+      dockerfile {
+        args '-v deploy_app:/tmp/ -u 0:0'
+      }
     }
-  
+
     stages {
-        stage('Dependencies Installation') {
+        stage('Install Dependencies') {
             steps {
-                sh "npm install"
+                sh 'npm install'
             }
         }
 
-        stage('Lint Test Execution') {
+        stage('Unit Test') {
             steps {
-                sh "npm run lint"
+                echo 'Ejecutando Unit Test'
             }
         }
 
-        // stage('Unit Test Execution') {
-        //    steps {
-        //        sh "npm run test"
-        //    }
-        // }
+//         stage('Sonar Scanner') {
+//             steps {
+//                 sh 'npm run sonar'
+//             }
+//         }
 
-        stage('Sonar Execution') {
+        stage('Build Application') {
             steps {
-                withSonarQubeEnv('sq-1'){
-                    sh "npm run sonar"
-                }
+                sh 'npm run build'
             }
         }
-
-        stage('Quality Gate Validation') {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
-        }
-
-        stage('Build Execution') {
-            steps {
-                sh "npm run build"
-            }
-        }
-        
+      
         stage('Deploy Application') {
             steps {
-                sh "cp dist/clase6/* /tmp"
+                sh 'cp dist/clase5-demo/* /tmp/'
             }
-        }
-
-    }
-
-    post {
-        always {
-            cleanWs()
         }
     }
 }
