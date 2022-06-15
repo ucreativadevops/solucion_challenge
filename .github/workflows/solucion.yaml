@@ -20,3 +20,14 @@ jobs:
           path: |
             dist
             !dist/**/*.md
+  cat_index_file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-without-markdown
+      - name: Cat index file
+        run: |
+          ls
+          cat clase6/index.html
