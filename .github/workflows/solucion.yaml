@@ -27,4 +27,5 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist-files
+      - name: Enlistar archivos
         run: ls dist
