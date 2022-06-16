@@ -18,3 +18,13 @@ jobs:
         with:
           name: dist-files
           path: dist
+  download-artifacts:
+    name: Display results
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el artifact dist
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-files
+        run: ls dist
