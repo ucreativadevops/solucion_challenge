@@ -28,4 +28,4 @@ jobs:
         with:
           name: dist-files
       - name: Enlistar archivos
-        run: ls dist
+        run: ls
