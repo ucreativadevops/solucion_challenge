@@ -19,7 +19,7 @@ jobs:
           name: dist-files
           path: dist
       - name: Curl sonarqube
-        run: curl localhost:9000
+        run: curl http://localhost:9000
   download-artifacts:
     name: Display results
     needs: build_and_test
