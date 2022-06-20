@@ -20,8 +20,6 @@ jobs:
         with:
           name: dist-files
           path: dist
-      - name: Curl sonarqube
-        run: curl 
   download-artifacts:
     name: Display results
     needs: build_and_test
