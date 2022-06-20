@@ -1,6 +1,6 @@
-name: artefactos-ejemplo-githubactions
+name: solucion_challenge6
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build_and_test:
@@ -13,6 +13,7 @@ jobs:
           npm install
           npm run lint
           npm run test
+          npm run sonar
           npm run build --if-present
           npm test
       - name: Archive production artifacts
