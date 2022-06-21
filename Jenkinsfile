@@ -34,11 +34,11 @@ pipeline {
             }
         }
 
-//         stage('Quality Gate Validation') {
-//             steps {
-//                 waitForQualityGate abortPipeline: true
-//             }
-//         }
+        stage('Quality Gate Validation') {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
 
         stage('Build Execution') {
             steps {
